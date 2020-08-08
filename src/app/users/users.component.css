@@ -1,0 +1,17 @@
+mat-sidenav{
+    width: 230px;
+    padding: 20px;
+}
+.mat-drawer{
+    background-color: white;
+    color: black;
+}
+.main-content{
+    padding: 100px;
+    text-align: center;
+    text-transform: capitalize;
+    text-shadow: burlywood;
+}
+.toolbar-spacer{
+    flex: 1 1 auto;
+}

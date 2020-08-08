@@ -1,0 +1,57 @@
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav opened mode="over" position="start">
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-divider></mat-divider>
+        <mat-form-field appearance="fill" >
+          <mat-label>Users</mat-label>
+          <mat-select>
+              <mat-option *ngFor=" let userDetails " [value]="userDetails.fullName">{{userDetails.fullName}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-divider></mat-divider>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            Db Mapping
+            <span class="toolbar-spacer"></span>
+            <input type="button" (click)="onLogout()" value="Logout" />
+        </mat-toolbar>
+        <div class="main-content">
+            <h1 > Mapping Manager</h1>
+            <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                  <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+                </ng-container>
+              
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                </ng-container>
+              
+                <!-- Weight Column -->
+                <ng-container matColumnDef="weight">
+                  <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+                </ng-container>
+              
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="symbol">
+                  <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+                </ng-container>
+              
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+        </div>
+        
+    </mat-sidenav-content>
+    </mat-sidenav-container>
